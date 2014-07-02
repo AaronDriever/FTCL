@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FTCL", "FTCL.vcxproj", "{4997F68F-03D2-4F20-9A3A-CC879B122D83}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pixel_testing", "..\..\gDrive\Sketches and libraries\pixel_testing\pixel_testing.vcxproj", "{74F207CB-5A28-4226-988B-589C193196D4}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -15,10 +13,6 @@ Global
 		{4997F68F-03D2-4F20-9A3A-CC879B122D83}.Debug|Win32.Build.0 = Debug|Win32
 		{4997F68F-03D2-4F20-9A3A-CC879B122D83}.Release|Win32.ActiveCfg = Release|Win32
 		{4997F68F-03D2-4F20-9A3A-CC879B122D83}.Release|Win32.Build.0 = Release|Win32
-		{74F207CB-5A28-4226-988B-589C193196D4}.Debug|Win32.ActiveCfg = Debug|Win32
-		{74F207CB-5A28-4226-988B-589C193196D4}.Debug|Win32.Build.0 = Debug|Win32
-		{74F207CB-5A28-4226-988B-589C193196D4}.Release|Win32.ActiveCfg = Release|Win32
-		{74F207CB-5A28-4226-988B-589C193196D4}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -12,6 +12,7 @@
 #define _VSARDUINO_H_
 #define __AVR_ATmega328p__
 #define __AVR_ATmega328P__
+#define _VMDEBUG 1
 #define ARDUINO 105
 #define ARDUINO_MAIN
 #define __AVR__
@@ -41,13 +42,14 @@ extern "C" void __cxa_pure_virtual() {;}
 
 //
 //
+void colorFlush();
 void colorWipe(uint32_t c, uint8_t wait);
 void rainbow(uint8_t wait);
 void rainbowCycle(uint8_t wait);
 void cylon(unsigned long color, byte wait);
 void cascade(unsigned long color, byte direction, byte wait);
 void clearpixel();
-void rainbow(byte startPosition);
+void rainbow2(byte startPosition);
 uint32_t rainbowOrder(byte position);
 void firstLight();
 void blink();
@@ -55,6 +57,7 @@ void cylon2();
 void calibrate();
 void allLEDS();
 void siren();
+uint32_t Wheel(byte WheelPos);
 
 #include "C:\Program Files (x86)\Arduino\hardware\arduino\cores\arduino\arduino.h"
 #include "C:\Program Files (x86)\Arduino\hardware\arduino\variants\standard\pins_arduino.h" 

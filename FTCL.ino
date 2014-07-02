@@ -4,28 +4,13 @@ FTCL
 ********************************************************/
 
 
-
-
-
-
 #include "FastLED.h"
 #include <Adafruit_NeoPixel.h>
 #include "WS2812_Definitions.h"
 
 
-
-// How many leds are in the strip?
-#define NUM_LEDS 4
-
-// Data pin that led data will be written out over
-#define PIN 3
-
-// Clock pin only needed for SPI based chipsets when not using hardware SPI
-//#define CLOCK_PIN 8
-
-
 #define PIN 6
-#define LED_COUNT 5
+#define LED_COUNT 8
 
 
 // This is an array of leds.  One item for each led in your strip.
@@ -45,23 +30,11 @@ void setup()
 	delay(2000);
 
 	// Uncomment one of the following lines for your leds arrangement.
-	// FastLED.addLeds<TM1803, PIN, RGB>(leds, NUM_LEDS);
-	// FastLED.addLeds<TM1804, PIN, RGB>(leds, NUM_LEDS);
-	// FastLED.addLeds<TM1809, PIN, RGB>(leds, NUM_LEDS);
-	// FastLED.addLeds<WS2811, PIN, RGB>(leds, NUM_LEDS);
-	//FastLED.addLeds<WS2812, PIN, RGB>(leds, NUM_LEDS);
-	//FastLED.addLeds<WS2812B, PIN, RGB>(leds, NUM_LEDS);
-	FastLED.addLeds<NEOPIXEL, PIN, GRB>(leds, NUM_LEDS);
-	// FastLED.addLeds<WS2811_400, PIN, RGB>(leds, NUM_LEDS);
-	// FastLED.addLeds<UCS1903, PIN, RGB>(leds, NUM_LEDS);
+	//FastLED.addLeds<WS2812, PIN, RGB>(leds, LED_COUNT);
+	//FastLED.addLeds<WS2812B, PIN, RGB>(leds, LED_COUNT);
+	FastLED.addLeds<NEOPIXEL, PIN, GRB>(leds, LED_COUNT);
 
-	// FastLED.addLeds<WS2801, RGB>(leds, NUM_LEDS);
-	// FastLED.addLeds<SM16716, RGB>(leds, NUM_LEDS);
-	// FastLED.addLeds<LPD8806, RGB>(leds, NUM_LEDS);
 
-	// FastLED.addLeds<WS2801, PIN, CLOCK_PIN, RGB>(leds, NUM_LEDS);
-	// FastLED.addLeds<SM16716, PIN, CLOCK_PIN, RGB>(leds, NUM_LEDS);
-	// FastLED.addLeds<LPD8806, PIN, CLOCK_PIN, RGB>(leds, NUM_LEDS);
 	pixel.begin();  // Call this to start up the LED strip.
 	clearpixel();   // This function, defined below, turns all pixel off...
 	pixel.show();   // ...but the pixel don't actually update until you call this.
@@ -69,18 +42,27 @@ void setup()
 
 void loop() {
 	// Some example procedures showing how to display to the pixels:
+	colorFlush();
+	rainbow(5);
+	//rainbow2(5); // doesn't work
+	rainbowCycle(5);
+	firstLight();  // whit traveling dot
+	//blink();
+	cylon(BLUE,100); // (color,speed)
+	cylon2();
+	//calibrate();
+	siren();
+	//allLEDS();
+
+}
+
+void colorFlush()
+{
 	colorWipe(pixel.Color(255, 0, 0), 50); // Red
 	colorWipe(pixel.Color(0, 255, 0), 50); // Green
 	colorWipe(pixel.Color(0, 0, 255), 50); // Blue
-	rainbow(20);
-	rainbowCycle(20);
-	//firstLight();
-	//blink();
-	cylon2();
-	//calibrate();
-	//allLEDS();
-	//siren();
 }
+
 
 // Fill the dots one after the other with a color	
 //colorWipe(pixel.Color(255, 0, 0), 50); // Red
@@ -100,7 +82,6 @@ void colorWipe(uint32_t c, uint8_t wait)
 void rainbow(uint8_t wait) 
 {
 	uint16_t i, j;
-
 	for(j=0; j<256; j++) 
 	{
 		for(i=0; i<pixel.numPixels(); i++) 
@@ -213,7 +194,7 @@ void clearpixel()
 // Prints a rainbow on the ENTIRE LED strip.
 //  The rainbow begins at a specified position. 
 // ROY G BIV!
-void rainbow(byte startPosition) 
+void rainbow2(byte startPosition) 
 {
 	// Need to scale our rainbow. We want a variety of colors, even if there
 	// are just 10 or so pixels.
@@ -269,7 +250,7 @@ uint32_t rainbowOrder(byte position)
 void firstLight()
 {
 	// Move a single white led 
-	for(int whiteLed = 0; whiteLed < NUM_LEDS; whiteLed = whiteLed + 1) 
+	for(int whiteLed = 0; whiteLed < LED_COUNT; whiteLed = whiteLed + 1) 
 	{
 		// Turn our current led on to white, then show the leds
 		leds[whiteLed] = CRGB::White;
@@ -300,7 +281,7 @@ void blink()
 void cylon2()
 {
 	// First slide the led in one direction
-	for(int i = 0; i < NUM_LEDS; i++) 
+	for(int i = 0; i < LED_COUNT; i++) 
 	{
 		// Set the i'th led to red 
 		leds[i] = CRGB::DarkRed;
@@ -313,7 +294,7 @@ void cylon2()
 	}
 
 	// Now go in the other direction.  
-	for(int i = NUM_LEDS-1; i >= 0; i--) 
+	for(int i = LED_COUNT-1; i >= 0; i--) 
 	{
 		// Set the i'th led to red 
 		leds[i] = CRGB::DarkRed;
@@ -328,11 +309,14 @@ void cylon2()
 void calibrate()
 {
 	leds[0] = CRGB::Thistle; 
-	leds[1] = CRGB::Green;
+	leds[1] = CRGB::Thistle;
 	leds[2] = CRGB::Green;
-	leds[3] = CRGB::Blue;
+	leds[3] = CRGB::Green;
 	leds[4] = CRGB::Blue;
-	leds[5] = CRGB::Blue;
+	leds[8] = CRGB::Blue;
+	leds[6] = CRGB::Blue;
+	leds[7] = CRGB::Blue;
+
 	FastLED.show();
 	delay(1000);
 }
@@ -344,6 +328,10 @@ void allLEDS()
 	leds[1] = CRGB::SteelBlue;
 	leds[2] = CRGB::Aquamarine;
 	leds[3] = CRGB::DarkViolet;
+	leds[4] = CRGB::DarkViolet;
+	leds[5] = CRGB::DarkViolet;
+	leds[6] = CRGB::DarkViolet;
+	leds[7] = CRGB::DarkViolet;
 	FastLED.show();
 	delay(1000);
 }
@@ -351,7 +339,7 @@ void allLEDS()
 void siren()
 {
 	// First slide the led in one direction
-	for(int i = 0; i < NUM_LEDS; i++) 
+	for(int i = 0; i < LED_COUNT; i++) 
 	{
 		// Set the i'th led to red 
 		leds[i] = CRGB::Blue;
@@ -364,7 +352,7 @@ void siren()
 	}
 
 	// Now go in the other direction.  
-	for(int i = NUM_LEDS-1; i >= 0; i--) 
+	for(int i = LED_COUNT-1; i >= 0; i--) 
 	{
 		// Set the i'th led to red 
 		leds[i] = CRGB::Red;
@@ -374,5 +362,24 @@ void siren()
 		leds[i] = CRGB::Black;
 		// Wait a little bit before we loop around and do it again
 		delay(30);
+	}
+}
+// Input a value 0 to 255 to get a color value.
+// The colours are a transition r - g - b - back to r.
+uint32_t Wheel(byte WheelPos) 
+{
+	if(WheelPos < 85) 
+	{
+		return pixel.Color(WheelPos * 3, 255 - WheelPos * 3, 0);
+	} 
+	else if(WheelPos < 170)
+	{
+		WheelPos -= 85;
+		return pixel.Color(255 - WheelPos * 3, 0, WheelPos * 3);
+	} 
+	else 
+	{
+		WheelPos -= 170;
+		return pixel.Color(0, WheelPos * 3, 255 - WheelPos * 3);
 	}
 }
