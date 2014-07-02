@@ -46,31 +46,17 @@ void rainbow(uint8_t wait);
 void rainbowCycle(uint8_t wait);
 void cylon(unsigned long color, byte wait);
 void cascade(unsigned long color, byte direction, byte wait);
-void clearLEDs();
+void clearpixel();
 void rainbow(byte startPosition);
 uint32_t rainbowOrder(byte position);
+void firstLight();
+void blink();
+void cylon2();
+void calibrate();
+void allLEDS();
+void siren();
 
 #include "C:\Program Files (x86)\Arduino\hardware\arduino\cores\arduino\arduino.h"
 #include "C:\Program Files (x86)\Arduino\hardware\arduino\variants\standard\pins_arduino.h" 
 #include "F:\MyRepo\FTCL\FTCL.ino"
-#include "F:\MyRepo\FTCL\FastLED.cpp"
-#include "F:\MyRepo\FTCL\FastLED.h"
-#include "F:\MyRepo\FTCL\FastSPI_LED2.h"
-#include "F:\MyRepo\FTCL\chipsets.h"
-#include "F:\MyRepo\FTCL\clockless.h"
-#include "F:\MyRepo\FTCL\clockless_trinket.h"
-#include "F:\MyRepo\FTCL\controller.h"
-#include "F:\MyRepo\FTCL\delay.h"
-#include "F:\MyRepo\FTCL\dmx.h"
-#include "F:\MyRepo\FTCL\fastpin.h"
-#include "F:\MyRepo\FTCL\fastspi.h"
-#include "F:\MyRepo\FTCL\fastspi_arm.h"
-#include "F:\MyRepo\FTCL\fastspi_avr.h"
-#include "F:\MyRepo\FTCL\fastspi_bitbang.h"
-#include "F:\MyRepo\FTCL\fastspi_dma.h"
-#include "F:\MyRepo\FTCL\hsv2rgb.cpp"
-#include "F:\MyRepo\FTCL\hsv2rgb.h"
-#include "F:\MyRepo\FTCL\lib8tion.cpp"
-#include "F:\MyRepo\FTCL\lib8tion.h"
-#include "F:\MyRepo\FTCL\pixeltypes.h"
 #endif
