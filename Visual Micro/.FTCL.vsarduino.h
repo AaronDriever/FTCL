@@ -41,8 +41,16 @@ extern "C" void __cxa_pure_virtual() {;}
 
 //
 //
+void colorWipe(uint32_t c, uint8_t wait);
+void rainbow(uint8_t wait);
+void rainbowCycle(uint8_t wait);
+void cylon(unsigned long color, byte wait);
+void cascade(unsigned long color, byte direction, byte wait);
+void clearLEDs();
+void rainbow(byte startPosition);
+uint32_t rainbowOrder(byte position);
 
 #include "C:\Program Files (x86)\Arduino\hardware\arduino\cores\arduino\arduino.h"
 #include "C:\Program Files (x86)\Arduino\hardware\SF32u4_boards-master\variants\promicro\pins_arduino.h" 
-#include "F:\gDrive\Sketches and libraries\FTCL\FTCL.ino"
+#include "F:\MyRepo\FTCL\FTCL.ino"
 #endif
