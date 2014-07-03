@@ -56,9 +56,11 @@ void loop()
 		{
 		case '0':    
 			off();
+			Serial.println("OFF");
 			break;		
 		case '1':    
 			allLEDS(RED);
+			Serial.println("RED");
 			break;
 		case '2':    
 			allLEDS(MIDNIGHTBLUE);
@@ -102,19 +104,20 @@ void printMenu()
 	Serial.println(F("Fish Tank Color Light Control!"));
 	Serial.println(F("============================"));
 	Serial.println(F("Usage: "));
-	Serial.println(F("w = Color flush"));
-	Serial.println(F("  e.g. w6088 - write pin 6 to 88"));
-	Serial.println(F("d= rainbow"));
-	Serial.println(F("  e.g. ddh - Write pin 13 High"));
-	Serial.println(F("r= firstLight"));
-	Serial.println(F("  e.g. r3 - Digital read pin 3"));
-	Serial.println(F("a=cylon"));
-	Serial.println(F("  e.g. a0 - Read analog pin 0"));
-	Serial.println();
-	Serial.println(F("- Use hex values for pins (a, b, c, or d) 10-13"));
-	Serial.println(F("- Upper or lowercase works"));
-	Serial.println(F("- Use 0, l, or L to write LOW"));
-	Serial.println(F("- Use 1, h, or H to write HIGH"));
+	Serial.println(F("0 = Off"));
+	Serial.println(F("1 = "));
+	Serial.println(F("2 = "));
+	Serial.println(F("3 = "));
+	Serial.println(F("4 = "));
+	Serial.println(F("5 = "));
+	Serial.println(F("6 = "));
+	Serial.println(F("7 = "));
+	Serial.println(F("8 = "));
+	Serial.println(F("9 = "));
+	Serial.println(F(""));
+	Serial.println(F(""));
+	Serial.println(F(""));
+	Serial.println(F(""));
 	Serial.println(F("============================"));  
 	Serial.println();
 }

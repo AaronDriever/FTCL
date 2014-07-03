@@ -44,7 +44,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Program Files (x86)\Arduino\hardware\arduino\cores\arduino;C:\Program Files (x86)\Arduino\hardware\arduino\variants\standard;F:\gDrive\Sketches and libraries\libraries\FastLED;F:\gDrive\Sketches and libraries\libraries\FastLED\utility;F:\gDrive\Sketches and libraries\libraries\Adafruit_NeoPixel;F:\gDrive\Sketches and libraries\libraries\Adafruit_NeoPixel\utility;F:\gDrive\Sketches and libraries\libraries\WS2812_Breakout_Example;F:\gDrive\Sketches and libraries\libraries\WS2812_Breakout_Example\utility;C:\Program Files (x86)\Arduino\libraries;C:\Program Files (x86)\Arduino\hardware\arduino\libraries;C:\Program Files (x86)\Visual Micro\Visual Micro for Arduino\Micro Platforms\default\debuggers;F:\gDrive\Sketches and libraries\libraries;c:\program files (x86)\arduino\hardware\tools\avr\avr\include\;c:\program files (x86)\arduino\hardware\tools\avr\avr\include\avr\;c:\program files (x86)\arduino\hardware\tools\avr\avr\;c:\program files (x86)\arduino\hardware\tools\avr\lib\gcc\avr\4.3.2\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files (x86)\Arduino\hardware\arduino\cores\arduino;C:\Program Files (x86)\Arduino\hardware\arduino\variants\standard;D:\code\Sketches and libraries\libraries\FastLED;D:\code\Sketches and libraries\libraries\FastLED\utility;D:\code\Sketches and libraries\libraries\Adafruit_NeoPixel;D:\code\Sketches and libraries\libraries\Adafruit_NeoPixel\utility;D:\code\Sketches and libraries\libraries\WS2812_Breakout_Example;D:\code\Sketches and libraries\libraries\WS2812_Breakout_Example\utility;c:\program files (x86)\arduino\hardware\tools\avr\avr\include\;c:\program files (x86)\arduino\hardware\tools\avr\avr\include\avr\;c:\program files (x86)\arduino\hardware\tools\avr\avr\;c:\program files (x86)\arduino\hardware\tools\avr\lib\gcc\avr\4.3.2\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>F:\MyRepo\FTCL\Visual Micro\.FTCL.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
       <PreprocessorDefinitions>__AVR_ATmega328p__;__AVR_ATmega328P__;_VMDEBUG=1;ARDUINO=105;ARDUINO_MAIN;__AVR__;__avr__;F_CPU=16000000L;__cplusplus;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -71,7 +71,9 @@
     <None Include="FTCL.ino">
       <FileType>CppCode</FileType>
     </None>
-    <None Include="Functions.ino" />
+    <None Include="Functions.ino">
+      <FileType>CppCode</FileType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Visual Micro\.FTCL.vsarduino.h" />
