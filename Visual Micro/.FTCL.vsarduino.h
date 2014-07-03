@@ -5,7 +5,7 @@
 	        all non-arduino files created by visual micro and all visual studio project or solution files can be freely deleted and are not required to compile a sketch (do not delete your own code!).
 	        note: debugger breakpoints are stored in '.sln' or '.asln' files, knowledge of last uploaded breakpoints is stored in the upload.vmps.xml file. Both files are required to continue a previous debug session without needing to compile and upload again
 	
-	Hardware: Arduino Uno, Platform=avr, Package=arduino
+	Hardware: Arduino Pro or Pro Mini (5V, 16 MHz) w/ ATmega328, Platform=avr, Package=arduino
 */
 
 #ifndef _VSARDUINO_H_
@@ -42,24 +42,29 @@ extern "C" void __cxa_pure_virtual() {;}
 
 //
 //
-void colorFlush();
-void colorWipe(uint32_t c, uint8_t wait);
-void rainbow(uint8_t wait);
-void rainbowCycle(uint8_t wait);
-void cylon(unsigned long color, byte wait);
+void printMenu();
+void off();
+void allLEDS(unsigned long color);
+void blink();
+void calibrate();
 void cascade(unsigned long color, byte direction, byte wait);
 void clearpixel();
-void rainbow2(byte startPosition);
-uint32_t rainbowOrder(byte position);
-void firstLight();
-void blink();
+void colorFlush();
+void colorWipe(uint32_t c, uint8_t wait);
+void cylon(unsigned long color, byte wait);
 void cylon2();
-void calibrate();
-void allLEDS();
+void firstLight();
+void rainbow(uint8_t wait);
+void rainbow2(byte startPosition);
+void rainbowCycle(uint8_t wait);
+uint32_t rainbowOrder(byte position);
 void siren();
 uint32_t Wheel(byte WheelPos);
+void dimmer();
+void dimmer1();
 
 #include "C:\Program Files (x86)\Arduino\hardware\arduino\cores\arduino\arduino.h"
 #include "C:\Program Files (x86)\Arduino\hardware\arduino\variants\standard\pins_arduino.h" 
 #include "F:\MyRepo\FTCL\FTCL.ino"
+#include "F:\MyRepo\FTCL\Functions.ino"
 #endif
