@@ -4,10 +4,12 @@ FTCL
 ********************************************************/
 
 
+#include <SoftwareSerial.h>
 #include "FastLED.h"
 #include <Adafruit_NeoPixel.h>
 #include "WS2812_Definitions.h"
 
+SoftwareSerial XBee(2, 3); // Arduino RX, TX (XBee Dout, Din)
 
 #define PIN 6
 #define LED_COUNT 8
@@ -24,6 +26,7 @@ Adafruit_NeoPixel pixel = Adafruit_NeoPixel(LED_COUNT, PIN, NEO_GRB + NEO_KHZ800
 
 void setup() 
 {
+	XBee.begin(115200); 
 	Serial.begin(9600);
 	// sanity check delay - allows reprogramming if accidently blowing power w/leds
 	delay(50);
@@ -52,47 +55,48 @@ void loop()
 		// the controller to get the ASCII value for the character.  For 
 		// example 'a' = 97, 'b' = 98, and so forth:
 
+		allLEDS(inByte);
+
+		/*
 		switch (inByte) 
 		{
 		case '0':    
-			off();
-			Serial.println("OFF");
-			break;		
+		off();
+		break;		
 		case '1':    
-			allLEDS(RED);
-			Serial.println("RED");
-			break;
+		allLEDS(RED);
+		break;
 		case '2':    
-			allLEDS(MIDNIGHTBLUE);
-			break;
+		allLEDS(MIDNIGHTBLUE);
+		break;
 		case '3':    
-			allLEDS(DARKBLUE);
-			break;
+		allLEDS(DARKBLUE);
+		break;
 		case '4':    
-			allLEDS(DARKGREEN);
-			break;
+		allLEDS(DARKGREEN);
+		break;
 		case '5':    
-			allLEDS(YELLOW);
-			break;
+		allLEDS(YELLOW);
+		break;
 		case '6':    
-			allLEDS(PURPLE);
-			break;
+		allLEDS(PURPLE);
+		break;
 		case '7':    
-			allLEDS(WHITE);
-			break;
+		allLEDS(WHITE);
+		break;
 		case '8':    
-			allLEDS(DIMGRAY);
-			break;
+		allLEDS(DIMGRAY);
+		break;
 		case '9':    
-			allLEDS(MEDIUMAQUAMARINE);
-			break;
+		allLEDS(MEDIUMAQUAMARINE);
+		break;
 		case 'a':    
-			dimmer();
-			break;
+		dimmer();
+		break;
 		case 'b':    
-			dimmer1();
-			break;
-		}
+		dimmer1();
+		break;
+		}*/
 	}
 }
 
@@ -127,10 +131,10 @@ void printMenu()
 //Colors.
 /*
 
-BLACK			
-NAVY			
-DARKBLUE		
-MEDIUMBLUE		
+BLACK=001			
+NAVY=002		
+DARKBLUE=003		
+MEDIUMBLUE=004		
 BLUE			
 DARKGREEN		
 GREEN			

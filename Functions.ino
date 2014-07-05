@@ -174,6 +174,28 @@ void cylon2()
 	}
 }
 
+void dimmer()
+{
+	colorWipe(pixel.Color(5, 5, 5), 50);
+}
+
+void dimmer1()
+{
+	colorWipe(pixel.Color(10, 10, 10), 50);
+}
+
+void dimmer2()
+{
+	colorWipe(pixel.Color(15, 15, 15), 50);
+}
+
+void dimmer3()
+{
+	colorWipe(pixel.Color(20, 20, 20), 50);
+}
+
+
+
 void firstLight()
 {
 	// Move a single white led 
@@ -320,14 +342,39 @@ uint32_t Wheel(byte WheelPos)
 	}
 }
 
-void dimmer()
+
+/* // to later be converted for use with this cod to reduct the number of functions
+void writeAPin()
 {
-	colorWipe(pixel.Color(10, 10, 10), 50);
+while (XBee.available() < 4); // Wait for pin and three value numbers to be received
+char pin = XBee.read(); // Read in the pin number
+int value = ASCIItoInt(XBee.read()) * 100; // Convert next three
+value += ASCIItoInt(XBee.read()) * 10;     // chars to a 3-digit
+value += ASCIItoInt(XBee.read());          // number.
+value = constrain(value, 0, 255); // Constrain that number.
+
+// Print a message to let the control know of our intentions:
+XBee.print("Setting pin ");
+XBee.print(pin);
+XBee.print(" to ");
+XBee.println(value);
+
+pin = ASCIItoInt(pin); // Convert ASCCI to a 0-13 value
+pinMode(pin, OUTPUT); // Set pin as an OUTPUT
+analogWrite(pin, value); // Write pin accordingly
 }
 
-void dimmer1()
+// ASCIItoInt
+// Helper function to turn an ASCII hex value into a 0-15 byte val
+int ASCIItoInt(char c)
 {
-	colorWipe(pixel.Color(5, 5, 5), 50);
+if ((c >= '0') && (c <= '9'))
+return c - 0x30; // Minus 0x30
+else if ((c >= 'A') && (c <= 'F'))
+return c - 0x37; // Minus 0x41 plus 0x0A
+else if ((c >= 'a') && (c <= 'f'))
+return c - 0x57; // Minus 0x61 plus 0x0A
+else
+return -1;
 }
-
-
+*/
